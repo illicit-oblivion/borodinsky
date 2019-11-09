@@ -1,0 +1,130 @@
+.header {
+    width:100%;
+    &__decoration {
+        background-image: url(../assets/img/index-backgound.jpg); /* Путь к фоновому рисунку */
+        background-position: center center; /* Положение фона */
+        background-repeat: no-repeat;
+        height:100vh;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        @include tablet{
+            height:469px;
+        }
+        @include phone{
+            max-height: 346px;
+            background-color: black;
+            background-image: none;
+            display:flex;
+        }
+    }
+    &__logo-img {
+        background-image: url(../assets/img/content-logo.png);
+        background-position: center center; /* Положение фона */
+        background-repeat: no-repeat;
+        height: 153px;
+        width: 370px;
+         @include phone{
+            width: 368px;
+            height: 50px;
+            margin:30px;
+         }
+     }
+}
+
+.navigation {
+    width:100%;
+    max-width: $main-width;
+    margin-bottom:rem(57px);
+    background-color: black;
+    display:flex;
+    justify-content: center;
+    @include phone{
+        order:2;
+        background-color: #826550;
+    }
+    &__list { 
+    width:$content-width;
+     text-transform: uppercase;
+     display: flex;
+     justify-content:space-between;
+     align-items: flex-end;
+        &-right {
+             flex:3;
+             @include phone{
+                position: absolute;
+                right:0;
+             }
+        }
+        &-left {
+             display: flex;
+             justify-content:space-between;
+             align-items: flex-end;
+             flex:9;
+             @include tablet{
+                flex: 34;
+            }
+        }
+        &-item { 
+            margin-right:rem(10px);
+            font-size: 18px;
+            white-space: nowrap;
+            font-weight: bold;
+            @include phone {
+                display:none;
+                &:first-child{
+                    width:100%;
+                    display: flex;
+                    justify-content: center;
+                    box-sizing: border-box;
+                }
+
+            }
+            &_enter {
+                @include tablet{
+                    display:none;
+
+                }
+                @include phone{
+                    background-color: #6a4d38;
+                    padding:0 17px;
+
+                }
+
+                text-align: right;
+            }
+            &:hover .navigation__list-link {
+                border-bottom: rem(3px) solid #826550;
+                @include phone{
+                    cursor:default;
+                    border-bottom:rem(3px) solid #826550;
+
+                }
+            }
+         }
+         &-link {
+            box-sizing: border-box;
+            padding:rem(29px) 0px; 
+            color: #ffffff;
+            border:rem(3px) solid transparent;
+            transition: border-color 300ms;
+            display: inline-block;
+            @include phone {
+                font-size: 18px;
+            }
+            &_active {
+              border-bottom: rem(3px) solid #826550;
+             }
+         }
+    }
+ }
+ .navigation__list-item_enter .navigation__list-link{
+     @include phone{
+    background-image: url(../assets/img/stripes.png);
+    background-position: center center; /* Положение фона */
+    background-repeat: no-repeat;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;  
+     }
+ }

@@ -1,0 +1,55 @@
+.reviews {
+    width:100%;
+    max-width:$content-width;
+    margin-top: rem(46px);
+    display: flex;
+    flex-direction: column;
+    @include phone{
+        align-items: center;
+    }
+    &__content {
+     display:flex;   
+     justify-content: space-between; 
+     margin-bottom: rem(42px);
+    }
+    &__item {
+        background-color:transparent;
+        border:rem(1px) solid rgba(102, 101, 101, 0.1);
+        @include phone{
+            display:none;
+        }
+    }
+    &__person {
+        @include phone{
+         padding:0 39px 0 20px;
+        }
+        display:flex;
+        &-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000000;
+        }
+        &-message {
+            font-size:18px;
+            color: #000000;
+        }
+        &-img {
+            max-width:rem(249px);
+            @include phone{
+                padding-top:10px;
+                max-width: 50px;
+                max-height: 49px;
+            }
+        }
+         &-text {
+             display:flex; 
+             flex-direction: column;
+             padding:rem(36px) rem(81px) rem(39px) rem(72px);
+             border:rem(1px) solid rgba(102, 101, 101, 0.1);
+             @include phone{
+                padding: 0 39px 0 19px;
+                border: none;
+             }
+          }
+    }
+}

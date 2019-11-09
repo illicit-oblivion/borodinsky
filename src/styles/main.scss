@@ -1,0 +1,34 @@
+main {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    background-color:$dark-grey;
+}
+.content {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    margin-top:-186px;
+     width:100%;
+    @include tablet{
+        margin-top: -173px;
+    }
+    
+    &:after {
+        content:"";
+        width:0px;
+        height: 0px;
+        border-top:rem(68px) solid transparent;
+        border-left:$main-half solid transparent;
+        border-right:$main-half solid transparent;
+        border-bottom:rem(68px) solid transparent;
+        border-color:#e5ddd5;
+        border-top-color:$dark-grey;
+        top:rem(36px);
+        right:100%;
+        @include phone{
+            border-color: $white;
+            border-top-color:$dark-grey;
+           }
+    }
+}
