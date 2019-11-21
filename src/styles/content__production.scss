@@ -1,6 +1,11 @@
 .content__production {
     @include tablet{
         flex-direction: column;
+        margin:0 $tablet-padding;
+    //    max-width:$tablet-width;
+    }
+    @include phone{
+        margin:0;
     //    max-width:$tablet-width;
     }
     display: flex;
@@ -45,12 +50,26 @@
         color: #000000;
         flex: 1;
         position:relative;
+        @include tablet {
+            padding-right: 15px;
+        }
+        @include phone{
+            font-size: 30px;
+            text-transform: uppercase;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
     }
     &-text {
         font-size: 20px;
         line-height: 1.35;
         color: #000000;
         margin-bottom: rem(41px);
+        @include phone {
+            box-sizing: border-box;
+            padding: 0px 5px;
+        
+        }
 
     }
     &-comment {
@@ -63,6 +82,7 @@
         &_phone{
             display:none;
             @include phone{
+                margin-bottom: 40px;
                 display:flex;
                 justify-content: center;
                 font-size: 20px;
@@ -72,6 +92,7 @@
     }
     &-statistic {
         flex: 1 1 67%;
+
     }
     &-align {
     display: flex;
@@ -92,7 +113,7 @@
     flex-wrap: wrap;
     @include phone{
         flex-direction: column;
-
+        margin-bottom:20px;
     }
     &-item{
         box-sizing: border-box;
@@ -101,6 +122,8 @@
         padding:rem(32px) rem(10px) rem(31px) rem(40px);
         flex-direction: column;
         @include phone{
+            padding-left:$phone-padding;
+            padding-right:$phone-padding;
             width:100%;
             display: flex;
             flex-direction: row;
@@ -123,6 +146,7 @@
         color: #ffffff;
         @include phone{
             flex:5;
+            font-size: 40px;
         }
     }
     &-desc {
@@ -132,6 +156,7 @@
         @include phone{
             flex:2;
             text-align:end;
+            font-size: 18px;
         }
       }
 

@@ -4,31 +4,48 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
+    @include tablet {
+        padding:0 $tablet-padding;
+    }
     @include phone{
-        background-color: $white;
+        padding:0 $phone-padding;
+        &:after {
+            padding:0 $phone-padding;
+            background-color: $white;
+            content:"";
+            width:0px;
+            height: 0px;
+            border-top:45px solid transparent;
+            border-left:50vw solid transparent;
+            border-right:50vw solid transparent;
+            border-bottom:0px;
+            border-color:$dark-grey;
+            border-top-color:#e5ddd5;
+        }
        }
 }
 
 
-.introduction {
-    display: flex;
-    justify-content: space-between; 
-    margin-bottom: rem(54px);
-    align-items: center;
-}
-
 .title {
+    flex: 4;
     font-size: 40px;
     font-weight: bold;
     color: #000000;
     text-transform:uppercase;
     padding-left:rem(105px);
+    @include tablet{
+         padding-left: 0;
+        }
     @include phone{
      padding:0;
      font-size: 30px;
+     text-align: center;
+     margin-bottom: 37px;
     }
 }
 .btn {
+    flex:1;
     font-size: 18px;
     font-weight: bold;
     color: #000000;
@@ -36,15 +53,21 @@
     text-transform:uppercase;
     background-color: transparent;
     border:rem(1px) solid rgba(102, 101, 101, 0.1);
-    @include phone{
-        display:none;
+    margin-bottom: 61px;
+    word-wrap: normal;
+    @include tablet{
+        flex:2;
     }
     &_news{
         @include phone{
-            display:none;
+            display:flex;
+            order:3;
+            justify-content: center;
+            padding: 18px 0px;
+            margin:0px 25px;
         }
     }
-    &_reviews{
+    &_review{
         @include phone{
             display:none;
         }
@@ -56,6 +79,7 @@
     border-color:rgba(102, 101, 101, 0.1);  
 }
 .drops {
+    width: 100%;
     margin-bottom: rem(46px);
     &__list {
         display:flex;
@@ -63,12 +87,31 @@
     }
    
      &__item {
-         @include phone{
-          font-size: 20px;
-         }
         margin-right: rem(23px);
-        &:last-child {
+        &:after {
+            content:'\2b26';  
+         }
+         &:last-child {
             margin-right: 0px;
         }
+        &:hover {
+            cursor: pointer;
+            &:after{
+                content:'\2b25';  
+            }
+        }
+        @include phone {
+            font-size: 20px;
+           }
+         &_active {
+            &:after {
+                content:'\2b25';  
+             }  
+         }
+
     }
 }
+
+
+
+

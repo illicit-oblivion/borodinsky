@@ -18,17 +18,27 @@ main {
         content:"";
         width:0px;
         height: 0px;
-        border-top:rem(68px) solid transparent;
+        border-top:68px solid transparent;
         border-left:$main-half solid transparent;
         border-right:$main-half solid transparent;
-        border-bottom:rem(68px) solid transparent;
+        border-bottom:0px;
         border-color:#e5ddd5;
         border-top-color:$dark-grey;
         top:rem(36px);
         right:100%;
-        @include phone{
-            border-color: $white;
+          @include laptop {
+           border-left:50vw solid transparent;
+            border-right:50vw solid transparent;
+            border-color:#e5ddd5;
             border-top-color:$dark-grey;
-           }
+         }
+         @include tablet {
+            border-top:68px solid transparent;    
+          }
+         @include phone {
+             border-top:45px solid transparent; 
+             border-color: #e5ddd5;
+            border-top-color:$dark-grey;   
+         }
     }
 }

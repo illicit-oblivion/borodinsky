@@ -12,7 +12,7 @@
             height:469px;
         }
         @include phone{
-            max-height: 346px;
+            max-height: 342px;
             background-color: black;
             background-image: none;
             display:flex;
@@ -43,7 +43,45 @@
         order:2;
         background-color: #826550;
     }
+    &__mobile {
+        display:none;
+        @include phone {
+            display:flex;
+            align-items:center;
+            padding:18px 0px;
+            position: relative;
+            width:100%;
+            justify-content: center;
+            &-title {
+                font-size: 18px;
+                text-transform: uppercase;
+                color: $white;
+                font-size: 18px;
+                font-weight: bold;
+            }
+            &-burger {
+                height: 100%;
+                width: 89px;            
+                background-color: #6a4d38;
+                position: absolute;
+                right:0; 
+                background-image: url(../assets/img/stripes.png);
+                background-position: center center; /* Положение фона */
+                background-repeat: no-repeat;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
     &__list { 
+        @include tablet {
+            padding:0px $tablet-padding;
+        }
+        @include phone {
+            display:none;
+            padding:0px $phone-padding;
+        }
     width:$content-width;
      text-transform: uppercase;
      display: flex;

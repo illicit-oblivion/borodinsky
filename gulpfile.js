@@ -21,7 +21,7 @@ gulp.task('clean', function() {
  });
 
 gulp.task('html', function() {
-	gulp.src('src/index.html')
+	gulp.src('src/*.html')
 		.pipe(gulp.dest('build/'))
 		// .on('end', function() { //запуск задачу 'useref' по завершению задачи 'html'.
 		// 	gulp.series('useref')();
@@ -29,7 +29,7 @@ gulp.task('html', function() {
 });
 
 gulp.task('useref', function() {
-	return gulp.src('build/index.html')
+	return gulp.src('build/*.html')
 		.pipe(useref()) //Выполняет объединение файлов в один по указанным в разметке html комментариев.
 		.pipe(gulp.dest('build/'));
 });
@@ -80,11 +80,11 @@ gulp.task('styles', function() {
 		.pipe(rename('build.css')) //Переименование
 		.pipe(gulp.dest('build/styles'));
 });
-// Задача 'watch' следит за всеми нашими файлами в проекте и при изменении тех или иных перезапустает соответсвующую задачу.
+// Задача 'watch' следит за всеми нашими файлами в проекте и при изменении тех или иных перезапускает соответстясвующую задачу.
 gulp.task('watch', function() {
 	gulp.watch('src/styles/**/*.scss', gulp.series('styles')); //стили
     gulp.watch('src/js/**/*.js', gulp.series('scripts')); //скрипты
-    gulp.watch('src/index.html', gulp.series('html')); // html
+    gulp.watch('src/*.html', gulp.series('html')); // html
     gulp.watch('./src/assets/**/*.*', gulp.series('assets')); //наши локальные файлы(картинки, шрифты)
     gulp.watch('src/**/*.*').on('change', browserSync.reload); //Перезапуск browserSynс
 });

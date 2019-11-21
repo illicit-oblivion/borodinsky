@@ -1,9 +1,18 @@
 .news {
+    margin-top: 68px;
     width:100%;
     max-width:$content-width;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     padding-bottom: rem(46px);
+    &__content{
+        @include phone {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+       }
+    }
     @include phone {
         align-items: center;
    }
@@ -23,6 +32,14 @@
                         display:none;
                     }
                 }
+                 @include phone{
+                   padding: 21px 0;  
+                   border-top:rem(1px) solid rgba(102, 101, 101, 0.1);
+                    &:first-child{
+                        padding-top:0px;
+                        border-top:0px;
+                     }
+                }
                 &__wrap{
                     display: flex;
                     flex-direction: column;
@@ -34,6 +51,10 @@
                 align-items: center;
                 background-color: $data;
                 padding:4px 12px;
+                @include phone {
+                    padding:0px;
+                    max-width: 74px;
+                }
                 &__number {
                     font-size: 30px;
                     font-weight: bold;      
@@ -42,6 +63,9 @@
                 &__month {
                     font-size: 20px;
                     color: #f7f4f1;
+                    @include phone {
+                        font-size: 18px;
+                    }
                 }
                 &-triangle {
                     width:0px;
@@ -51,6 +75,10 @@
                     border-right:43px solid transparent;
                     border-bottom:0px;
                     border-top-color: $data;
+                    @include phone{
+                        border-left:37px solid transparent;
+                        border-right:37px solid transparent;
+                    }
                 
                 }
             }

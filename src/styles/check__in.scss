@@ -1,0 +1,361 @@
+
+.reservation {
+    background-color: #e5ddd5;
+    padding:63px $padding 87px $padding;
+    box-sizing: border-box;
+    max-width:$content-width;
+
+        @include tablet {
+            padding:63px $tablet-padding 87px $tablet-padding;
+        }
+        @include  phone-form {
+            padding:63px $phone-padding 87px $phone-padding;
+        }
+    width:100%;
+    &__title {
+        display:grid;
+        grid-template-columns:1fr auto;
+        
+    }
+}
+
+.title_check {
+    padding:0;
+    @include phone-form {
+        justify-self: center;
+        font-size: 30px;
+        margin-bottom: 33px;
+    }
+}
+.btn_check {
+    @include phone-form {
+        display: none;
+    }
+}
+
+
+.form {
+    input{
+        padding:26px;
+        box-sizing:border-box;
+        font-size: 24px;
+        @include laptop {
+            font-size: 18px;   
+            padding:22px;
+            }
+            @include tablet {
+                font-size: 13px;
+                padding:18px;
+            }
+            @include  phone-form {
+                font-size: 10px;
+                padding:12px;
+            }
+        &:focus{
+            color:$data;
+        }
+        &::placeholder {
+            font-size: 24px;
+            color:$data;
+            opacity:0.5;
+            @include laptop {
+            font-size: 18px;   
+            }
+            @include tablet {
+                font-size: 13px;
+            }
+            @include  phone-form {
+                font-size: 12px;
+            }
+          }
+       }
+     textarea{
+        padding:11px 14px 11px 20px;
+        height: 211px;
+        box-sizing:border-box;
+        font-size: 24px;
+        @include laptop {
+            font-size: 18px;   
+            }
+            @include tablet {
+                font-size: 13px;
+            }
+            @include  phone-form {
+                font-size: 12px;
+                height: 112px;
+            }
+        &:focus{
+            color:$data;
+        }
+        &::placeholder {
+            font-size: 24px;
+            color:$data;
+            opacity:0.5;
+            @include laptop {
+                font-size: 18px;   
+                }
+                @include tablet {
+                    font-size: 13px;
+                }
+                @include  phone-form {
+                    font-size: 12px;
+                }
+          }
+     }  
+    &__data{
+        display:grid;
+        grid-gap:35px;
+        grid-template-areas: 
+        "user__name user__name surname surname patronymic patronymic"
+        "tel tel tel email email email"
+        "extra extra extra extra extra extra";
+        margin-bottom: 74px;
+        @include tablet {
+            grid-column-gap:0;
+            grid-row-gap:35px;
+            grid-template-areas: 
+            "user__name surname patronymic"
+            "tel tel tel "
+            "email email email "
+            "extra extra extra ";
+        }
+        @include phone-form {
+            grid-row-gap:6px;
+            grid-template-areas: 
+            "user__name"
+            "surname"
+            "patronymic"
+            "tel"
+            "email"
+            "extra";
+        }
+    }
+        &__name {
+            grid-area: user__name;
+        }
+        &__surname {
+            grid-area:surname;
+        }
+        &__patronymic {
+            grid-area: patronymic;
+            @include phone-form {
+                margin-bottom: 25px;
+            }
+        }
+        &__tel { 
+            grid-area: tel;
+        }
+        &__email {
+            grid-area:email;
+            @include phone-form {
+                margin-bottom: 25px;
+            }
+        }
+        &__inform {
+            grid-area: extra;
+        }
+}
+
+.form {
+    &__title {
+        font-size: 30px;
+        color: $data;
+        text-transform: uppercase;
+        text-align: center;
+        overflow: hidden;
+        margin-bottom:41px;
+        @include phone-form {
+            font-size: 20px;
+        }
+        &:before,&:after {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        border: 1px solid rgba(102, 101, 101, 0.1);
+
+    }
+    &:before {
+        margin-right: 26px;
+        margin-left: -100%;
+        @include phone-form {
+            display: none;
+        }
+    }
+    &:after {
+         margin-left: 26px;
+        margin-right: -100%;
+        @include phone-form {
+            display: none;
+        }
+    }
+}
+}
+
+
+.form{
+    &__model{
+        margin-bottom: 61px;
+
+    }
+    &__block-model{
+        display:grid;
+        grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+        grid-gap:30px;
+    }
+    &__item-model{
+        padding-top:50px;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__container-model {
+        display: block;
+        position: relative;
+        cursor: pointer;
+        font-size: 18px;
+        padding: 10px 0;
+        &:hover .form__checkmark-model:after {
+            display: block;
+            top: 17.8px;
+            left: 17.8px;
+            width: 17.8px;
+            height: 17.8px;
+            box-sizing: border-box;
+            border:1px solid rgba(102, 101, 101, 0.1);
+            border-radius: 50%;
+    }
+    }
+    &__character-model {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+        &:checked  ~.form__checkmark-model:after {
+            display: block;
+            background-color:#826550;
+          }
+    }
+    
+    &__checkmark-model {
+        position: absolute;
+        left: 50%;
+        height: 50px;
+        width: 50px;
+        margin-left: -25px;
+        background-color: #fff;
+        border-radius: 50%;
+        bottom: 100%;
+        &:after {
+            top: 17.8px;
+            left: 17.8px;
+            width: 17.8px;
+            height: 17.8px;
+            border-radius: 50%;
+            background: white;
+            content: "";
+            position: absolute;
+            display: none;
+          }
+    }
+
+    &__img-model{
+        &_admiral{
+            width: 52px;
+            height: 49px;
+        }
+        &_lumberjack{
+            width: 58px;
+            height: 68px;
+        }
+        &_polar{
+            width: 63px;
+            height: 78px;
+        }
+        &_boyar{
+            width: 57px;
+            height: 97px;
+        }
+        &_sage{
+            width: 45px;
+            height: 104px;
+        }
+    }
+}
+
+.form{
+    &__serveces{
+        margin-bottom: 85px;
+    }
+}
+.serveces{
+    &__block{
+        display:grid;
+        grid-row-gap:55px;
+        grid-column-gap: 30px;
+        grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    }
+    &__container{
+        display: block;
+        position: relative;
+        padding-left: 55px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        @include phone-form {
+            font-size: 18px;
+        }
+    }
+    &__input{
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+        &:checked ~ .serveces__checkmark:after {
+            display: block;
+            left: 10px;
+            top: 3px;
+            width: 13px;
+            height: 19px;
+            border: solid black;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+        }
+
+    }
+    &__checkmark{
+        position: absolute;
+        top: 50%;
+        margin-top: -18px;
+        left: 0;
+        height: 36px;
+        width: 36px;
+        background-color:$white;
+        border: solid 1px #e5ddd5;
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+            
+            
+          }
+
+    }
+}
+.form__btn {
+    background-color:#826550;
+    width:100%;
+    padding:26px 0;
+    font-size:8;
+    font-size: 24px;
+    font-weight: bold;
+    color: $white;
+    text-transform: uppercase;
+    border:1px solid #826550;
+    &:hover{
+        border:1px solid white;
+    }
+}
+

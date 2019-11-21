@@ -22,3 +22,8 @@
         @content;
     }
 }
+@mixin phone-form{
+    @media screen and (max-width: 514px) {
+        @content;
+    }
+}

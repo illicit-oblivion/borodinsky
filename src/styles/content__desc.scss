@@ -2,11 +2,18 @@
     max-width:$content-width;
     width:100%;
     margin-bottom: rem(39px);
+    @include phone{
+        margin-bottom: 0px;
+    }
     &-list {
         display: flex;
         flex-wrap: wrap;
         @include tablet{
+            padding: 0  $tablet-padding;
             flex-direction:column;
+        }
+        @include phone{
+            padding:0 $phone-padding;
         }
     }
     &-item { 
@@ -48,13 +55,16 @@
          background-color:black;
         background-position: center center; /* Положение фона */
         background-repeat: no-repeat;
-        width: 95px;
+        min-width: 95px;
         height: 94px;
         object-fit: contain;
         margin-bottom: rem(34px);
-        @include tablet{
+        @include tablet {
             margin-bottom: 0;
             margin-right: 10px;
+        }
+        @include phone {
+            margin-bottom: 34px;
         }
     }
     &-message {
@@ -84,7 +94,9 @@
             text-align: left;
         }
         @include phone{
+            font-size: 18px;
            text-align: center;
+           padding: 0px 20px;
          }
     }
     &_drops{

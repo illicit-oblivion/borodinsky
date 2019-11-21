@@ -3,9 +3,11 @@
     max-width:$content-width;
     margin-top: rem(46px);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     @include phone{
-        align-items: center;
+        justify-content: center;
+        
     }
     &__content {
      display:flex;   
@@ -20,6 +22,11 @@
         }
     }
     &__person {
+        @include tablet{
+           align-items:center;
+           border:rem(1px) solid rgba(102, 101, 101, 0.1);
+           padding-left: 31px;
+        }
         @include phone{
          padding:0 39px 0 20px;
         }
@@ -35,6 +42,12 @@
         }
         &-img {
             max-width:rem(249px);
+            @include tablet{
+                border-radius: 50%;
+                object-fit: cover;
+                width: 80px;
+                height: 80px;
+            }
             @include phone{
                 padding-top:10px;
                 max-width: 50px;
@@ -46,6 +59,9 @@
              flex-direction: column;
              padding:rem(36px) rem(81px) rem(39px) rem(72px);
              border:rem(1px) solid rgba(102, 101, 101, 0.1);
+             @include tablet{
+                 border:0;
+             }
              @include phone{
                 padding: 0 39px 0 19px;
                 border: none;

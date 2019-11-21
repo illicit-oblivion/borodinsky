@@ -3,6 +3,13 @@ footer {
     display: flex;
     justify-content: center;
     width:100%;
+    box-sizing: border-box;
+    @include tablet {
+        padding:0 $tablet-padding;
+    }
+    @include phone {
+        padding:0 $phone-padding;
+    }
 }
 .footer {
     &__container {
@@ -16,6 +23,7 @@ footer {
         @include phone{
             flex-direction: column;
              align-items: center;
+             margin-bottom:0px;
         }
     }
 }
@@ -83,13 +91,18 @@ footer {
         }
     }
     &__img {
-        max-height:rem(17px);
-        max-width:rem(17px);
+        height:rem(17px);
+        width:rem(17px);
         @include tablet{
         margin:auto;
         height:26px;
         width: 23px;
         }
+        @include phone{
+            margin:auto;
+            height:rem(45px);
+            width: rem(45px);
+            }
     }
     &__icons {
         @include tablet{
